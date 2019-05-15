@@ -1,0 +1,65 @@
+<div class="container">
+        <div class="jumbotron" style="padding:1rem 2rem;">
+          <h1 style="text-align:center">Julhas Playlist Solver</h1>
+        </div>
+            <div class="alert alert-dark" role="alert">
+              <ul class="nav justify-content-end">
+                <li class="nav-item">
+                  <a class="nav-link active" routerLink="/home">Home</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" routerLink="/account">Account</a>
+                </li>
+                <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Categories
+                  </a>
+                  <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" routerLink="/music">Music</a>
+                    <a class="dropdown-item" routerLink="/movies">Movies</a>
+                    <a class="dropdown-item" routerLink="/sports">Sports</a>
+                  </div>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" routerLink="/addvideos">Add Videos</a>
+                </li>
+
+                <li class="nav-item">
+                  <a class="nav-link" routerLink="/logout">Logout</a>
+                </li>
+              </ul>
+            </div>
+
+            <div class="card text-center" style="width: 69.5rem;" *ngFor="let vid of vidservice.list">
+
+              <p class="card-text">{{ vid.id }}</p>
+              <div class="card-body">
+                <h5 class="card-title">{{ vid.video_title }}</h5>
+
+                <p class="card-text">{{ vid.video_description }}</p>
+              </div>
+              <ul class="list-group list-group-flush">
+                <li class="list-group-item">{{ vid.categories }}</li>
+                <li class="list-group-item">
+                  <youtube-player
+                    [videoId]="vid.video_url"
+                    (ready)="savePlayer($event)"
+                    (change)="onStateChange($event)"
+                  ></youtube-player>
+                </li>
+              </ul>
+              <ul class="list-group list-group-flush" (click)="populateForm(vid)" routerLink="/updatevideos">
+                <li class="list-group-item"><button (click)="populateForm(vid)" type="button" class="btn btn-primary">Update Video</button></li>
+              </ul>
+              <ul class="list-group list-group-flush">
+                <li class="list-group-item"><button (click)="onDelete(vid.id)" type="button" class="btn btn-danger">Delete Video</button></li>
+              </ul>
+
+            </div>
+
+            <nav class="navbar navbar-light bg-light">
+              <span class="navbar-text justify-content-end">
+                Developed By Julhas
+              </span>
+            </nav>
+      </div>

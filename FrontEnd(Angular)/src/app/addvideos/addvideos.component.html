@@ -1,0 +1,72 @@
+      <div class="container">
+        <div class="jumbotron" style="padding:1rem 2rem;">
+          <h1 style="text-align:center">Julhas Playlist Solver</h1>
+        </div>
+            <div class="alert alert-dark" role="alert">
+              <ul class="nav justify-content-end">
+                <li class="nav-item">
+                  <a class="nav-link active" routerLink="/home">Home</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" routerLink="/account">Account</a>
+                </li>
+                <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Categories
+                  </a>
+                  <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" routerLink="/music">Music</a>
+                    <a class="dropdown-item" routerLink="/movies">Movies</a>
+                    <a class="dropdown-item" routerLink="/sports">Sports</a>
+                  </div>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" routerLink="/register">Add Videos</a>
+                </li>
+
+                <li class="nav-item">
+                  <a class="nav-link" routerLink="/register">Logout</a>
+                </li>
+              </ul>
+            </div>
+
+            <form #form="ngForm" (submit)="onSubmit(form)" autocomplete="off">
+              <input type="hidden" name="id" #id="ngModel" [(ngModel)]="vidservice.formData.id"/>
+
+
+              <div class="form-group row">
+                <label for="inputEmail3" class="col-sm-2 col-form-label">Video title</label>
+
+
+                <div class="col-sm-10">
+
+                  <input name="video_title" #video_title="ngModel" [(ngModel)]="vidservice.formData.video_title" class="form-control" required/>
+                   <div class="validation-error" *ngIf="video_title.invalid && video_title.touched">This field is required</div>
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="exampleFormControlTextarea1">Video Description</label>
+                <input name="video_description" #video_description="ngModel" [(ngModel)]="vidservice.formData.video_description" class="form-control" />
+              </div>
+              <div class="form-group">
+                <label for="exampleFormControlTextarea1">Video Url</label>
+                <input name="video_url" #video_url="ngModel" [(ngModel)]="vidservice.formData.video_url" class="form-control" />
+              </div>
+              <div class="form-group">
+                <label for="exampleFormControlTextarea1">Categorie Name</label>
+                <input name="categories" #categories="ngModel" [(ngModel)]="vidservice.formData.categories" class="form-control" />
+              </div>
+
+              <div class="form-group row">
+                <div class="col-sm-10">
+                  <button type="submit" [disabled]="form.invalid" class="btn btn-primary">Upload</button>
+                </div>
+              </div>
+            </form>
+
+            <nav class="navbar navbar-light bg-light">
+              <span class="navbar-text justify-content-end">
+                Developed By Julhas
+              </span>
+            </nav>
+      </div>
