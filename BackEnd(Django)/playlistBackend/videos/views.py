@@ -8,7 +8,7 @@ from .pagination import CustomPagination
 from rest_framework import status
 
 
-class get_delete_update_video(RetrieveUpdateDestroyAPIView):
+class GetDeleteUpdateVideo(RetrieveUpdateDestroyAPIView):
     serializer_class = VideosSerializer
     permission_classes = (IsAuthenticated, IsOwnerOrReadOnly)
 
@@ -62,7 +62,7 @@ class get_delete_update_video(RetrieveUpdateDestroyAPIView):
             return Response(content, status=status.HTTP_401_UNAUTHORIZED)
 
 
-class get_post_videos(ListCreateAPIView):
+class GetPostVideos(ListCreateAPIView):
     serializer_class = VideosSerializer
     permission_classes = (IsAuthenticated,)
     pagination_class = CustomPagination

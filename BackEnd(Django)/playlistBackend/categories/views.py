@@ -8,7 +8,7 @@ from .pagination import CustomPagination
 from rest_framework import status
 
 
-class get_delete_update_categorie(RetrieveUpdateDestroyAPIView):
+class GetDeleteUpdateCategories(RetrieveUpdateDestroyAPIView):
     serializer_class = CategoriesSerializer
     permission_classes = (IsAuthenticated, IsOwnerOrReadOnly)
 
@@ -66,7 +66,7 @@ class get_delete_update_categorie(RetrieveUpdateDestroyAPIView):
             return Response(content, status=status.HTTP_401_UNAUTHORIZED)
 
 
-class get_post_categories(ListCreateAPIView):
+class GetPostCategories(ListCreateAPIView):
     serializer_class = CategoriesSerializer
     permission_classes = (IsAuthenticated,)
     pagination_class = CustomPagination
