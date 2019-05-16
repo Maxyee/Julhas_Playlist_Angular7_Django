@@ -49,16 +49,13 @@ Command for activate env (windows)
 
 `env\Scripts\activate`
 
-After activating your env install all of this pakages for the project
-
-	pip install django
-	pip install djangorestframework
-	pip install django-rest-auth
-	pip install django-allauth
-
-Now go to the folder called BackEnd(Django)/playlistBackend
+After activating your env, then switch to the project folder named playlistBackend
 
 `cd playlistBackend`
+
+then install all of the pakages form the file called `requirement.txt` you just write this command into the cmd
+
+`pip install -r requirement.txt`
 
 Now we have to migrate our models so that we can make table to the database and can make CRUD operation.
 
