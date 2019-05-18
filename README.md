@@ -103,6 +103,9 @@ Check For Video POST request:
 http://localhost:8000/api/v1/videos/
 ![alt text](https://github.com/Maxyee/Julhas_Playlist_Angular7_Django/blob/master/PlaylistScreenShot/PostManPOST.png)
 
+Note: When You going to post the `video_url` value just add ta watch string provided by youtube. Take help from the screen Shot.
+![alt text](https://github.com/Maxyee/Julhas_Playlist_Angular7_Django/blob/master/PlaylistScreenShot/YoutubeUrl.png)
+
 Check For Video PUT request:
 http://localhost:8000/api/v1/videos/19
 ![alt text](https://github.com/Maxyee/Julhas_Playlist_Angular7_Django/blob/master/PlaylistScreenShot/PostManPUT.png.png)
