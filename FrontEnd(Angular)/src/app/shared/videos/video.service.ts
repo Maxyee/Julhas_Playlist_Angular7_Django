@@ -18,24 +18,23 @@ export class VideoService {
   constructor(private http: HttpClient) { }
 
   postVideo(formData:Video){
+    //Token 4adf3d9cfa4d1efd4ec3dace664e6061110fe0f4
+    var token = localStorage.getItem('userToken');
     const httpOptions = {
       headers: new HttpHeaders({
-        'Authorization': 'Token 4adf3d9cfa4d1efd4ec3dace664e6061110fe0f4',
+        'Authorization': 'Token '+token,
         'Content-Type': 'application/json' })
     }
-
-    // const formFile :Video = new Video();
-    // formFile.append('video',formData.file,formData.video_title)
-
 
     return this.http.post(this.rootURL+'/videos/',formData,httpOptions);
   }
 
 
   refreshList(){
+    var token = localStorage.getItem('userToken');
     const httpOptions = {
       headers: new HttpHeaders({
-        'Authorization': 'Token 4adf3d9cfa4d1efd4ec3dace664e6061110fe0f4',
+        'Authorization': 'Token '+token,
         'Content-Type': 'application/json' })
     }
 
@@ -45,9 +44,10 @@ export class VideoService {
 
 
   putVideo(formData:Video){
+    var token = localStorage.getItem('userToken');
     const httpOptions = {
       headers: new HttpHeaders({
-        'Authorization': 'Token 4adf3d9cfa4d1efd4ec3dace664e6061110fe0f4',
+        'Authorization': 'Token '+token,
         'Content-Type': 'application/json' })
     }
 
@@ -56,9 +56,10 @@ export class VideoService {
   }
 
   deleteVideo(id: number){
+    var token = localStorage.getItem('userToken');
     const httpOptions = {
       headers: new HttpHeaders({
-        'Authorization': 'Token 4adf3d9cfa4d1efd4ec3dace664e6061110fe0f4',
+        'Authorization': 'Token '+token,
         'Content-Type': 'application/json' })
     }
 

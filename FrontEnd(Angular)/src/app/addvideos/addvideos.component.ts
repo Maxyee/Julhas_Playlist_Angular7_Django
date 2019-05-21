@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { NgForm, FormGroup, FormBuilder } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
 import { VideoService } from '../shared/videos/video.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-addvideos',
@@ -10,7 +11,7 @@ import { VideoService } from '../shared/videos/video.service';
 })
 export class AddvideosComponent implements OnInit {
 
-  constructor(private vidservice: VideoService, private toastr: ToastrService) { }
+  constructor(private vidservice: VideoService, private toastr: ToastrService, private router:Router) { }
 
   ngOnInit() {
     this.resetForm();
@@ -59,6 +60,12 @@ export class AddvideosComponent implements OnInit {
         this.resetForm(form);
         this.vidservice.refreshList();
     });
+  }
+
+
+  logout(){
+    localStorage.removeItem('userToken');
+    this.router.navigate(['/login'])
   }
 
 }

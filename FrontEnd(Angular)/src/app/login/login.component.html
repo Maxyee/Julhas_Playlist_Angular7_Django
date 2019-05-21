@@ -2,34 +2,43 @@
   <div class="jumbotron" style="padding:1rem 2rem;">
     <h1 style="text-align:center">Julhas Playlist Solver</h1>
   </div>
-      <div class="alert alert-dark" role="alert">
-        <ul class="nav justify-content-end">
-          <li class="nav-item">
-            <a class="nav-link active" routerLink="/login">Login</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" routerLink="/register">Register</a>
-          </li>
-        </ul>
+      <div style="background-color:#f8f9fa;">
+          <div class="alert alert-dark" role="alert">
+            <ul class="nav justify-content-end">
+              <li class="nav-item">
+                <a class="nav-link active" routerLink="/login">Login</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" routerLink="/register">Register</a>
+              </li>
+            </ul>
+          </div>
+              <div *ngIf="isLoginError" class="red-text center error-message">
+                  <i class="material-icons">error</i> Incorrect username or password
+              </div>
+
+              <form #form="ngForm" (submit)="onSubmit(form)" autocomplete="off">
+
+
+
+                  <div class="form-group">
+                    <label for="exampleFormControlTextarea1">Username</label>
+                    <input name="username" #username="ngModel" [(ngModel)]="logService.formData.username" class="form-control" />
+                  </div>
+
+                  <div class="form-group">
+                    <label for="exampleFormControlTextarea1">Password</label>
+                    <input type="password" name="password" #password="ngModel" [(ngModel)]="logService.formData.password" class="form-control" />
+                  </div>
+
+
+                  <div class="form-group row">
+                    <div class="col-sm-10">
+                      <button type="submit" [disabled]="form.invalid" class="btn btn-primary">Login</button>
+                    </div>
+                  </div>
+            </form>
       </div>
-
-      <form>
-        <div class="form-group">
-          <label for="exampleInputEmail1">Email address</label>
-          <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
-          <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
-        </div>
-        <div class="form-group">
-          <label for="exampleInputPassword1">Password</label>
-          <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
-        </div>
-        <div class="form-check">
-          <input type="checkbox" class="form-check-input" id="exampleCheck1">
-          <label class="form-check-label" for="exampleCheck1">Remember Me</label>
-        </div>
-        <button type="submit" class="btn btn-primary">Login</button>
-      </form>
-
       <nav class="navbar navbar-light bg-light">
             <span class="navbar-text justify-content-end">
               Developed By Julhas

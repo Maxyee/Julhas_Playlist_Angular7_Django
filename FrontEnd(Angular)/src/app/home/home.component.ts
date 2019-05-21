@@ -3,6 +3,7 @@ import { ToastrService } from 'ngx-toastr';
 import { VideoService } from '../shared/videos/video.service';
 import { CategorieService } from '../shared/categories/categorie.service';
 import { Video } from '../shared/videos/video.model';
+import { Router } from '@angular/router';
 
 
 
@@ -13,7 +14,7 @@ import { Video } from '../shared/videos/video.model';
 })
 export class HomeComponent implements OnInit {
 
-  constructor(private vidservice:VideoService, private catservice:CategorieService,private toastr: ToastrService){}
+  constructor(private vidservice:VideoService, private catservice:CategorieService,private toastr: ToastrService,private router:Router){}
 
 
   player: YT.Player;
@@ -47,6 +48,11 @@ export class HomeComponent implements OnInit {
         });
     }
 
+  }
+
+  logout(){
+    localStorage.removeItem('userToken');
+    this.router.navigate(['/login'])
   }
 
 

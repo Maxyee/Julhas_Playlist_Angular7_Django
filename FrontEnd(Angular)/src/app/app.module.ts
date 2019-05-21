@@ -13,7 +13,7 @@ import { SportsComponent } from './sports/sports.component';
 import { MoviesComponent } from './movies/movies.component';
 import { AddvideosComponent } from './addvideos/addvideos.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { FormsModule } from '@angular/forms';
+import { FormsModule,ReactiveFormsModule  } from '@angular/forms';
 import { NgxYoutubePlayerModule } from 'ngx-youtube-player';
 
 import { ToastrModule } from 'ngx-toastr';
@@ -21,6 +21,9 @@ import { HttpClientModule } from '@angular/common/http';
 import { VideoService } from './shared/videos/video.service';
 import { CategorieService } from './shared/categories/categorie.service';
 import { UpdatevideosComponent } from './updatevideos/updatevideos.component';
+import { MustMatchDirective } from './_helpers/must-match.directive';
+import { LoginService } from './shared/login/login.service';
+import { RegisterService } from './shared/register/register.service';
 
 
 
@@ -38,17 +41,19 @@ import { UpdatevideosComponent } from './updatevideos/updatevideos.component';
     MoviesComponent,
     AddvideosComponent,
     UpdatevideosComponent,
+    MustMatchDirective,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
+    ReactiveFormsModule,
     BrowserAnimationsModule,
     NgxYoutubePlayerModule,
     ToastrModule.forRoot()
   ],
-  providers: [VideoService,CategorieService],
+  providers: [VideoService,CategorieService,LoginService,RegisterService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
