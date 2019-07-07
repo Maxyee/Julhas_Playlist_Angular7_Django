@@ -3,7 +3,7 @@
 # Julhas PlayList Solver (Youtube)
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.3.8. (FrontEnd)
-And another was created with Django Rest Framework version 2.2 (BackEnd)
+And another was created with Django Rest Framework version 2.2.3 (BackEnd)
 
 ## Theme of This Project
 This project is simple crud operation between two-end using 'REST API' both Frontend and backend (frontend is developed with Angular 7 which can make request CRUD to the server end. And the backend service is made with Django rest framework.)
