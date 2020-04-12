@@ -159,4 +159,15 @@ note that we need to pass the specific Id for delete the specific video as a par
 
 
 ## Further help
+
 Mail me into this email address : julhas.glostars@gmail.com
+
+## Contributors
+
+- Md Julhas Hossain
+
+## License & copyright
+
+© Md Julhas Hossain, Self Learning Software Development
+
+Licensed under the [MIT License](LICENSE)
